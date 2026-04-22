@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Support for ippun — contact us, get help, and read answers to common questions.">
+<title>Support — ippun</title>
+<link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap-wide site-header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/mark.svg" alt="" class="brand-mark">
+      <span class="brand-name">ippun</span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="doc-header">
+    <div class="wrap">
+      <p class="kicker">Help & Contact</p>
+      <h1>Support</h1>
+      <p class="updated">We read every message.</p>
+    </div>
+  </div>
+
+  <section class="doc-body">
+    <div class="wrap">
+
+      <p>Thank you for using ippun. If you're running into a problem, have a question about a compound or translation, or want to suggest something, please get in touch. Each message is read by a real person.</p>
+
+      <div class="contact-card">
+        <div class="label">Email</div>
+        <div class="value"><a href="mailto:support@example.com">support@example.com</a></div>
+      </div>
+
+      <h3>Before you write</h3>
+      <p>If you're reporting a problem, including the following will help us respond quickly:</p>
+      <ul>
+        <li>Your device model (for example, iPhone 14 Pro)</li>
+        <li>Your iOS version</li>
+        <li>The app version (found in <em>Settings → About</em> inside the app)</li>
+        <li>A short description of what happened and what you expected</li>
+      </ul>
+
+      <h3>Frequently asked</h3>
+
+      <div class="faq-item">
+        <h3>Do I need an account to play?</h3>
+        <p>No. ippun works entirely without an account. Your progress is saved on your device.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What if I delete the app?</h3>
+        <p>Because progress is saved only on your device, reinstalling the app will start you fresh. Cloud sync is planned for a future update.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How do I turn off analytics?</h3>
+        <p>Open Settings inside the app and switch off <em>Help improve ippun</em>. When disabled, no further data is collected.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>I found a mistake in a translation or reading.</h3>
+        <p>Please email us the compound and the correction. Every entry is reviewed by native speakers, but mistakes do slip through — we're grateful for the catch.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Will ippun come to Android or iPad?</h3>
+        <p>Android is planned shortly after the iPhone launch. An iPad-native layout will follow. We'll post updates on this page.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is ippun free?</h3>
+        <p>Yes, with no ads and no forced sign-in. Optional paid features may arrive in a future update, but the core experience will remain free.</p>
+      </div>
+
+      <h3>Response time</h3>
+      <p>We aim to reply within two business days. Thank you for your patience.</p>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap-wide site-footer-inner">
+    <span class="colophon">© <span id="year"></span> ippun.</span>
+    <nav aria-label="Footer">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

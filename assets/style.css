@@ -1,0 +1,465 @@
+/* ippun — light matcha aesthetic
+   Refined, minimal, warm. Subtle grain and soft matcha accents. */
+
+:root {
+  /* Matcha palette — warm, powdery, quiet */
+  --cream: #f5f1e8;           /* warm off-white, like rice paper */
+  --cream-soft: #ebe5d6;      /* slightly deeper cream for cards */
+  --matcha: #8ba888;          /* soft matcha green */
+  --matcha-deep: #5e7a5a;     /* deeper accent */
+  --matcha-dark: #3d4f3b;     /* for text contrast */
+  --ink: #2a2d26;             /* warm near-black */
+  --ink-soft: #5a5d52;        /* muted body text */
+  --rule: rgba(94, 122, 90, 0.18);
+
+  --serif: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  --sans: "Inter Tight", -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --measure: 62ch;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Subtle paper grain — gives the cream background texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.36 0 0 0 0 0.42 0 0 0 0 0.32 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Content sits above grain */
+.site-header, main, .site-footer { position: relative; z-index: 2; }
+
+/* ─── Layout ─────────────────────────────────────────── */
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.wrap-wide {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ─── Header ─────────────────────────────────────────── */
+
+.site-header {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+nav.primary {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+nav.primary a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+nav.primary a:hover,
+nav.primary a[aria-current="page"] {
+  color: var(--matcha-dark);
+  border-bottom-color: var(--matcha);
+}
+
+/* ─── Hero / Landing ─────────────────────────────────── */
+
+.hero {
+  padding: 5rem 0 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.hero .eyebrow {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--matcha-deep);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 4.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+  color: var(--ink);
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--matcha-deep);
+  font-weight: 400;
+}
+
+.hero .lede {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 40ch;
+  margin: 0 auto 2.5rem;
+  line-height: 1.55;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--matcha-dark);
+  color: var(--cream);
+  text-decoration: none;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-cta:hover {
+  background: var(--ink);
+  transform: translateY(-1px);
+}
+
+.hero-cta-note {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+/* Decorative circle — evokes a matcha bowl seen from above */
+.hero-bowl {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    rgba(139, 168, 136, 0.22) 0%,
+    rgba(139, 168, 136, 0.08) 45%,
+    transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ─── Sections ───────────────────────────────────────── */
+
+section {
+  padding: 3.5rem 0;
+}
+
+section + section {
+  border-top: 1px solid var(--rule);
+}
+
+.section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--matcha-deep);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 2rem 0 0.75rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1.1rem;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+p strong { color: var(--ink); font-weight: 600; }
+
+a { color: var(--matcha-deep); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--ink); }
+
+/* Feature list on landing */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem 2rem;
+  margin-top: 2rem;
+}
+
+.feature .feature-num {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--matcha);
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.feature h3 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-family: var(--sans);
+  letter-spacing: -0.005em;
+}
+
+.feature p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* ─── Document pages (support, privacy) ──────────────── */
+
+.doc-header {
+  padding: 3.5rem 0 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.doc-header .kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--matcha-deep);
+  margin-bottom: 0.75rem;
+}
+
+.doc-header h1 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+}
+
+.doc-header .updated {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--serif);
+}
+
+.doc-body {
+  padding: 2.5rem 0 4rem;
+}
+
+.doc-body ul {
+  padding-left: 1.25rem;
+  margin: 0 0 1.25rem;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+.doc-body li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.doc-body li::marker {
+  color: var(--matcha);
+}
+
+/* Contact card */
+.contact-card {
+  margin-top: 2rem;
+  padding: 1.75rem 2rem;
+  background: var(--cream-soft);
+  border-left: 3px solid var(--matcha);
+  border-radius: 4px;
+  max-width: var(--measure);
+}
+
+.contact-card .label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--matcha-deep);
+  margin-bottom: 0.4rem;
+}
+
+.contact-card .value {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.contact-card .value a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--matcha);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* FAQ */
+.faq-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+  max-width: var(--measure);
+}
+
+.faq-item:last-child { border-bottom: none; }
+
+.faq-item h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 0.97rem;
+}
+
+/* ─── Footer ─────────────────────────────────────────── */
+
+.site-footer {
+  margin-top: 4rem;
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.site-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-footer a {
+  color: var(--ink-soft);
+  margin-left: 1.25rem;
+  text-decoration: none;
+}
+
+.site-footer a:hover { color: var(--matcha-dark); }
+
+.site-footer .colophon {
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+/* ─── Animations ─────────────────────────────────────── */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero .eyebrow { animation: rise 0.7s ease 0.05s both; }
+.hero h1       { animation: rise 0.7s ease 0.15s both; }
+.hero .lede    { animation: rise 0.7s ease 0.30s both; }
+.hero-cta      { animation: rise 0.7s ease 0.45s both; }
+.hero-cta-note { animation: rise 0.7s ease 0.55s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .site-header { padding: 1.5rem 0 1rem; }
+  nav.primary { gap: 1.25rem; }
+  nav.primary a { font-size: 0.88rem; }
+  .hero { padding: 3.5rem 0 2.5rem; }
+  .hero-bowl { width: 300px; height: 300px; }
+  section { padding: 2.5rem 0; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+  .site-footer a { margin-left: 0; margin-right: 1.25rem; }
+}
