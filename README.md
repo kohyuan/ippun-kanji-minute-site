@@ -17,18 +17,7 @@ Static site for Apple App Store submission. Hosts the required Support URL and P
 
 No build step. Pure HTML/CSS, one Google Fonts link, no JS dependencies.
 
-## Before you ship
-
-Replace the placeholder email addresses:
-
-- `support@example.com` in `support.html`
-- `privacy@example.com` in `privacy.html`
-
-Search-and-replace:
-
-```sh
-grep -rn "example.com" .
-```
+## On Policy Update
 
 Update the "Last updated" date in `privacy.html` whenever you materially change the policy.
 
